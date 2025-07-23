@@ -2,12 +2,48 @@
 
 *Tất cả đều được thực hiện trên Git Bash, not CMD*
 
-### Nhánh hotfix 
+### Nhánh dev:
 
-#### Mục đích
+- `dev` là nhánh phát triển chính – nơi tất cả tính năng mới được code và test trước khi được merge lên `main`.
+- `dev` chứa code đang phát triển, chưa ổn định và `main` chứa code ổn định, triển khai được.
 
-- được tạo ra để sửa lỗi khẩn cấp xảy ra trên môi trường production (đã release).
-#### Quy trình
+#### Quy trình:
+
+1. Tạo nhánh từ `dev` để thêm tính năng mới:
+
+```bash
+git checkout dev # chuyển qua nhánh dev
+git fetch origin
+git reset --hard origin/dev
+git checkout -b feature/dang-nhap
+```
+
+2. Làm xong thì commit và đẩy lên nhánh `feature/dang-nhap`
+
+```bash
+git add .
+git commit -m "lam xong tinh nang dang nhap"
+git push -u origin feature/dang-nhap
+```
+
+3. Merge vào `dev` để đồng bộ code:
+
+```bash
+git checkout dev
+git fetch origin # 
+git reset --hard origin/dev # di chuyển tới commit mới nhất của nhánh
+git merge feature/dang-nhap # gộp nhánh vào dev
+```
+
+- *Lưu ý*: Trường hợp error thì do nhánh `dev` đã được bảo vệ, cần chuyển sang bước [Create pull request](https://share.note.sx/ucb59y53#zI5tnQNLP4D8IeP2DShaGKA1PxWqKJK4ok9VUGY13JE)
+
+### Nhánh hotfix:
+
+#### Mục đích:
+
+- Được tạo ra để sửa lỗi khẩn cấp xảy ra trên môi trường production (đã release).
+
+#### Quy trình:
 
 1. Bắt đầu từ nhánh `main/master`:
 
@@ -29,8 +65,8 @@ git push -u origin hotfix/fix-loi-login
 3. Sau khi đẩy lên `hotfix/fix-loi-login`, merge vào nhánh `main`:
 
 ```bash
-git checkout main
-git merge hotfix/fix-loi-login
+git checkout main # chuyển tới main
+git merge hotfix/fix-loi-login # gộp nhánh vào main
 git push
 ```
 
@@ -42,7 +78,7 @@ git push
 git checkout dev
 git fetch origin # 
 git reset --hard origin/dev # di chuyển tới commit mới nhất của nhánh
-git merge hotfix/fix-loi-login
+git merge hotfix/fix-loi-login # gộp nhánh vào dev
 ```
 
 - *Lưu ý*: Trường hợp error thì do nhánh `dev` đã được bảo vệ, cần chuyển sang bước [Create pull request](https://share.note.sx/ucb59y53#zI5tnQNLP4D8IeP2DShaGKA1PxWqKJK4ok9VUGY13JE)
