@@ -18,7 +18,7 @@ git reset --hard origin/main # di chuyển tới commit mới nhất của nhán
 git checkout -b hotfix/fix-loi-login # tạo nhánh hotfix và di chuyển tới nhánh đó
 ```
 
-2.  Sau khi fix commit và đẩy lên:
+2.  Sau khi fix, commit và đẩy lên:
 
 ```bash
 git add .
@@ -34,7 +34,7 @@ git merge hotfix/fix-loi-login
 git push
 ```
 
-- *Lưu ý*: Trường hợp error thì do nhánh `main` đã được bảo vệ, cần chuyển sang bước [[Create pull request]]
+- *Lưu ý*: Trường hợp error thì do nhánh `main` đã được bảo vệ, cần chuyển sang bước [Create pull request](https://share.note.sx/ucb59y53#zI5tnQNLP4D8IeP2DShaGKA1PxWqKJK4ok9VUGY13JE)
 
 4. Merge vào `dev` để đồng bộ code:
 
@@ -45,7 +45,7 @@ git reset --hard origin/dev # di chuyển tới commit mới nhất của nhánh
 git merge hotfix/fix-loi-login
 ```
 
-- *Lưu ý*: Trường hợp error thì do nhánh `dev` đã được bảo vệ, cần chuyển sang bước [[Create pull request]]
+- *Lưu ý*: Trường hợp error thì do nhánh `dev` đã được bảo vệ, cần chuyển sang bước [Create pull request](https://share.note.sx/ucb59y53#zI5tnQNLP4D8IeP2DShaGKA1PxWqKJK4ok9VUGY13JE)
 
 5. Xóa nhánh hotfix nếu không cần nữa:
 
