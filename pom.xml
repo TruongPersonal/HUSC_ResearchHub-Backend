@@ -11,8 +11,6 @@
     <groupId>vn.edu.husc</groupId>
     <artifactId>researchhub</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>HUSC_ResearchHub-Backend</name>
-    <description>HUSC_ResearchHub-Backend</description>
     <url/>
     <licenses>
         <license/>
